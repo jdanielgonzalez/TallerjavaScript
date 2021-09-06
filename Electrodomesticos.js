@@ -1,13 +1,14 @@
-module.exports = class Electrodomestico{
+export default class Electrodomestico{
     constructor(opcProcedencia, consumo){
+        this.precio=0;
         this.consumo = consumo;
         this.opcProcedencia = opcProcedencia;
-        this.precio = this.obtenerValorConsumo()+this.obtenerValorProcedencia();
     }
     obtenerValorProcedencia()
     {
-        let resultado = this.opcProcedencia === `Nacional` ? 250000 : 350000;
-        return resultado;
+        if(this.opcProcedencia=="nacional"){this.precio+=250000;}
+        else if(this.opcProcedencia=="importado"){this.precio+=150000;}
+        else {console.log("procedencia no valida")}
     }
 
     obtenerValorConsumo()
@@ -25,8 +26,19 @@ module.exports = class Electrodomestico{
             case "c":
                 this.precio+=250000;
                 break;
-            console.log("consumo no definido");
+            
+            default:
+                console.log("consumo no definido");
+                break
         }
     }
+
+    calcularPrecioBase()
+    {
+        this.obtenerValorConsumo();
+        this.obtenerValorProcedencia();
+        return this.precio;
+    }
+    
 }
 
