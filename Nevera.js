@@ -1,28 +1,28 @@
-import Electrodomesticos from `./Electrodomesticos.js`;
+import Electrodomesticos from "./Electrodomesticos.js";
 
-export class Nevera extends Electrodomestico
+export class Nevera extends Electrodomesticos
 {
-    constructor(consumo, procedencia, capacidad)
-    {
-        super(this.consumo,this.precio)
-        this.capacidad = capacidad;
-        this.precio = this.calcularprecioBase();
+   constructor(procedencia,consumo,capacidad)
+   {
+       super(procedencia ,consumo);
+       this.precio=0;
+       this.procedencia=procedencia;
+       this.consumo=consumo;
+       this.capacidad=capacidad;
+       this.precio=super.calcularPrecioBase();
     }
 
-    calcularPrecioNevera()
+    calcularPrecioConsumo()
+    {
+        this.precio+=this.precio*(Number.parseInt((this.capacidad-120)/10))*(5/100);
+    }
+
+    calcularPrecio()
     {
         if(this.capacidad>120)
         {
-            this.capacidad = (((this.capacidad-120)*5)/100);
+            this.calcularPrecioConsumo();
         }
-        else
-        {
-            this.capacidad=0;
-        }
-
-        calcularCapacidad()
-        {
-
-        }
+        return this.precio;
     }
 }
