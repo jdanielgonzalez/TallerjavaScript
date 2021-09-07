@@ -52,6 +52,16 @@ export default class Electrodomestico{
         this.obtenerValorProcedencia();
         return this.precio;
     }
+
+    getConsumo()
+    {
+        return this.consumo;
+    }
+    getProcedencia()
+    {
+        return this.opcProcedencia;
+    }
+    
     
 }
 

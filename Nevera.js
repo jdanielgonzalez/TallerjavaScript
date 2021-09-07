@@ -14,15 +14,30 @@ export class Nevera extends Electrodomesticos
 
     calcularPrecioConsumo()
     {
-        this.precio+=this.precio*(Number.parseInt((this.capacidad-120)/10))*(5/100);
+        if(this.capacidad>120)
+        {
+            this.precio+=this.precio*(Number.parseInt((this.capacidad-120)/10))*(5/100);
+        }
+    }
+
+    validardatos()
+    {
+        if(Number.isInteger(this.capacidad)===false){return false;}
+        if(Number.isInteger(this.capacidad)===true){return true;}
     }
 
     calcularPrecio()
     {
-        if(this.capacidad>120)
+        let isValido=this.validardatos();
+        if(isValido===false)
+        {
+            return "se ingresaron mal los parametros";
+        }
+        else if(isValido===true)
         {
             this.calcularPrecioConsumo();
+            return this.precio;
         }
-        return this.precio;
+        
     }
 }
