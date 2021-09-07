@@ -9,64 +9,11 @@ export class Texto
     {
         this.menu="";
         this.menu =this.menu.concat("*************Bienvenido**************\n"+
-        "1. Ingresar inventario\n"+
-        "2. Crear Factura\n"+
+        "1. Comprar\n"+
+        "2. Factura\n"+
         "3. Ver inventario\n"+
         "0. Salir\n"+
         "\n"+ "ingrese una opcion:");
-        return this.menu;
-    }
-
-    menuAgregarInventario()
-    {
-        this.menu="";
-        this.menu =this.menu.concat("Seleccione el tipo de Electrodometico a agregar:\n"+
-        "1. Electrodomestico\n"+
-        "2. TV\n"+
-        "3. nevera\n"+
-        "0. Salir\n"+
-        "\n"+ "ingrese una opcion:");
-        return this.menu;
-    }
-
-    menuConsumo()
-    {
-        this.menu="";
-        this.menu =this.menu.concat("Seleccione el consumo: \n"+
-        "A\n"+
-        "B\n"+
-        "C\n"+
-        "0. Salir\n"+
-        "\n"+ "ingrese una opcion:");
-        return this.menu;
-    }
-
-    menuProcedencia()
-    {
-        this.menu="";
-        this.menu =this.menu.concat("Seleccione la procedencia: \n"+
-        "Nacional\n"+
-        "Importado\n"+
-        "0. Salir\n"+
-        "\n"+ "ingrese una opcion:");
-        return this.menu;
-    }
-
-    menuTamaño()
-    {
-        this.menu="";
-        this.menu =this.menu.concat("Ingrese el tamaño: \n"+
-        "0. Salir\n");
-        return this.menu;
-    }
-
-    menuIsTDT()
-    {
-        this.menu="";
-        this.menu =this.menu.concat("Tiene codificacion TDT: \n"+
-        "1. si\n"+
-        "2. no\n"+
-        "0. Salir\n");
         return this.menu;
     }
 
@@ -153,5 +100,22 @@ export class Texto
             }
         }
         
+    }
+
+
+    Productos()
+    {
+        this.menu="";
+        this.menu =this.menu.concat("Que articulo desea compar: \n"+
+        "1. Electrodomesticos nacionales de consumo B\n"+
+        "2. Neveras nacionales de consumo A\n"+
+        "3. TVs internacinales de consumo C\n"+
+        "4. TVs internacinales de consumo B\n"+
+        "5. Tvs nacionales de consumo A\n"+
+        "6. Elcetrodomesticos nacionales de consumo A\n"+
+        "7. Nevereas internacionales de consumo C\n"+
+        "0. para terminar\n"+
+        "\n"+ "ingrese una opcion:");
+        return this.menu;
     }
 }

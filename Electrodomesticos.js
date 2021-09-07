@@ -61,6 +61,11 @@ export default class Electrodomestico{
     {
         return this.opcProcedencia;
     }
+
+    getPrecio()
+    {
+        return this.precio;
+    }
     
     
 }

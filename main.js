@@ -1,13 +1,16 @@
 import Electrodomestico from "./Electrodomesticos.js";
+import {Inventario} from "./Inventario.js";
 import {Nevera} from "./Nevera.js";
-import { Television } from "./Television.js";
-import { Texto } from "./Texto.js";
+import {Television} from "./Television.js";
+import {Texto} from "./Texto.js";
 
-let inventarioElc = [];
-let inventarioTv  = [];
-
+let lista = new Inventario();
+console.log(lista);
+let cantidad =[5,10,7,13,3,8,12]
 let menu = new Texto();
 let opcion="";
+
+let totalapagar=0;
 
 while(opcion!==null)
 {
@@ -15,74 +18,70 @@ while(opcion!==null)
     switch(opcion)
     {
         case "1":
-            let item=prompt(menu.menuAgregarInventario());
-            //electrodomesticos
-            if(item==="1")
+            let p1;
+            let n=0;
+            do
             {
-                let consumo=prompt(menu.menuConsumo());
-                consumo=consumo.toLowerCase();
-                consumo=menu.verificarConsumo(consumo);
+                p1=prompt(menu.Productos());
+                if(p1==="1")
+                    {
+                    n = prompt("Cuantos desea compar: \n");
+                    n= parseInt(n)
+                    totalapagar+=lista[0].getPrecio()*n;
+                    console.log(totalapagar);
+                    }
 
-                let procedencia=prompt(menu.menuProcedencia());
-                procedencia=procedencia.toLowerCase();
-                procedencia=menu.verificarProcedencia(procedencia);
+                else if(p1==="2")
+                    {
+                        n = prompt("Cuantos desea compar: \n");
+                        n=parseInt(n);
+                        totalapagar+=lista[1].getPrecio()*n;
+                    }
 
-                let Elec = new Electrodomestico(procedencia,consumo);
-                inventarioElc.push(Elec);
+                else if(p1==="3")
+                    {
+                        n = prompt("Cuantos desea compar: \n");
+                        n=parseInt(n);
+                        totalapagar+=lista[2].getPrecio()*n;
+                    }
+
+                else if(p1==="4")
+                    {
+                        n = prompt("Cuantos desea compar: \n");
+                        n=parseInt(n);
+                        totalapagar+=lista[3].getPrecio()*n;
+                    }
+
+                else if(p1==="5")
+                    {
+                        n = prompt("Cuantos desea compar: \n");
+                        n=parseInt(n);
+                        totalapagar+=lista[4].getPrecio()*n;
+                    }
+
+                else if(p1==="6")
+                    {
+                        n = prompt("Cuantos desea compar: \n");
+                        n=parseInt(n);
+                        totalapagar+=lista[5].getPrecio()*n;
+                    }
+
+                else if(p1==="7")
+                    {
+                        n = prompt("Cuantos desea compar: \n");
+                        n=parseInt(n);
+                        totalapagar+=lista[6].getPrecio()*n;
+                    }
             }
-
-            if(item==="2")
-            {
-                alert("aqui");
-                let consumo=prompt(menu.menuConsumo());
-                consumo=consumo.toLowerCase();
-                consumo=menu.verificarConsumo(consumo);
-
-                let procedencia=prompt(menu.menuProcedencia());
-                procedencia=procedencia.toLowerCase();
-                procedencia=menu.verificarProcedencia(procedencia);
-                
-                let tamaño=prompt(menu.menuTamaño());
-                tamaño=menu.verificarTamaño(tamaño);
-
-                let IsTDT=prompt(menu.menuIsTDT());
-                IsTDT=menu.verificarOpcion(IsTDT,2);
-
-                let Tv = new Television(procedencia,consumo,tamaño,IsTDT);
-                inventarioTv.push(Tv);
-            }
-
-
-            opcion=0;
+            while(p1!="0");
             break;
 
         case "2":
-            alert("facturazion");
-            break;
-
-        case "3":
-            let s="";
-            if(inventarioElc[0] instanceof Electrodomestico)
-            {
-                for(let i=0; i<inventarioTv.length; i++)
-                {
-                    s=s.concat("Electrodomestico ");
-                    s=s.concat(inventarioElc[i].getConsumo()+" "+inventarioElc[i].getProcedencia());
-                    s=s.concat("\n");
-                }
+            let p2=1;
+            while(p2!=="0")
+            {                
+                p2=prompt("Total a pagar: "+totalapagar+"$ \n"+"ingrese 0 para regresar:");
             }
-
-            else if(inventarioTv[0] instanceof Television)
-            {
-                for(let i=0; i<inventarioTv.length; i++)
-                {
-                    s=s.concat("Tv ");
-                    s=s.concat(inventarioTv[i].getConsumo()+" "+inventarioTv[i].getProcedencia()+" "+inventarioTv[i].getTamaño()+" "+inventarioTv[i].getIsTDT());
-                    s=s.concat("\n");
-                }
-
-            }
-            alert(s); 
             break;
         
         case "0":
